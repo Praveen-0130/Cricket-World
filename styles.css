@@ -1,10 +1,16 @@
-body {
+body { 
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
-}
+  background-color: #f9fafb; /* lighter and softer background */
+  color: #222; /* slightly deeper text color for better contrast */
+  line-height: 1.6; /* improves readability */
+  font-size: 16px; /* base font size for consistency */
+  -webkit-font-smoothing: antialiased; /* smoother font rendering */
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s; /* smooth theme transitions */
+} /*Change made by Aditthya*/
+
 
 .player:nth-child(1) {
   background-color: #01e240;
