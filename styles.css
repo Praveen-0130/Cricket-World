@@ -1,0 +1,413 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.player:nth-child(1) {
+  background-color: #01e240;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(2) {
+  background-color: #03c480;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(3) {
+  background-color: #05a6c0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(4) {
+  background-color: #078900;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(5) {
+  background-color: #096b40;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(6) {
+  background-color: #0b4d80;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(7) {
+  background-color: #0d2fc0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(8) {
+  background-color: #0f1200;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(9) {
+  background-color: #10f440;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(10) {
+  background-color: #12d680;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(11) {
+  background-color: #14b8c0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(12) {
+  background-color: #169b00;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(13) {
+  background-color: #187d40;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(14) {
+  background-color: #1a5f80;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(15) {
+  background-color: #1c41c0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(16) {
+  background-color: #1e2400;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(17) {
+  background-color: #200640;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(18) {
+  background-color: #21e880;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(19) {
+  background-color: #23cac0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(20) {
+  background-color: #25ad00;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(21) {
+  background-color: #278f40;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(22) {
+  background-color: #297180;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(23) {
+  background-color: #2b53c0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(24) {
+  background-color: #2d3600;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(25) {
+  background-color: #2f1840;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(26) {
+  background-color: #30fa80;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(27) {
+  background-color: #32dcc0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(28) {
+  background-color: #34bf00;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(29) {
+  background-color: #36a140;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(30) {
+  background-color: #388380;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(31) {
+  background-color: #3a65c0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(32) {
+  background-color: #3c4800;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(33) {
+  background-color: #3e2a40;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(34) {
+  background-color: #400c80;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(35) {
+  background-color: #41eec0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(36) {
+  background-color: #43d100;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(37) {
+  background-color: #45b340;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(38) {
+  background-color: #479580;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(39) {
+  background-color: #4977c0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(40) {
+  background-color: #4b5a00;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(41) {
+  background-color: #4d3c40;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(42) {
+  background-color: #4f1e80;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(43) {
+  background-color: #5100c0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(44) {
+  background-color: #52e300;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(45) {
+  background-color: #54c540;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(46) {
+  background-color: #56a780;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(47) {
+  background-color: #5889c0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(48) {
+  background-color: #5a6c00;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(49) {
+  background-color: #5c4e40;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.player:nth-child(50) {
+  background-color: #5e3080;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+header, footer {
+  background-color: #004d00;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
