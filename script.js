@@ -1,13 +1,6 @@
-//Aditthya Debugged whole JS Code Now its working good
-//Changed whole code
 // Subscribe button alert
 function alertSubscribe() {
   alert("Thanks for subscribing to Cricket World!");
-}
-
-// Log info about players loaded
-for (let i = 1; i <= 100; i++) {
-  console.log(`Loaded player ${i} info`);
 }
 
 // Countdown timers for upcoming matches
@@ -94,8 +87,37 @@ function initializeSmoothScroll() {
   });
 }
 
-// Initialize functions when DOM is ready
+// Dynamically generate player cards and matches, then initialize functionality
 document.addEventListener('DOMContentLoaded', () => {
+  const playerWrapper = document.querySelector('.players-wrapper');
+  if (playerWrapper) {
+    for (let i = 1; i <= 50; i++) {
+      const playerDiv = document.createElement('div');
+      playerDiv.className = 'player';
+      playerDiv.innerHTML = `
+        <img src="assets/player${(i % 3) + 1}.jpg" alt="Player ${i}" />
+        <h3>Player Name ${i}</h3>
+        <p>Bio for player ${i} with a notable history in international cricket and domestic leagues.</p>
+      `;
+      playerWrapper.appendChild(playerDiv);
+    }
+  }
+
+  const matchWrapper = document.querySelector('.matches-wrapper');
+  if (matchWrapper) {
+    for (let i = 1; i <= 50; i++) {
+      const matchDiv = document.createElement('div');
+      matchDiv.className = 'match';
+      const day = ((i % 30) + 1).toString().padStart(2, '0');
+      matchDiv.innerHTML = `
+        <h4>Match ${i}: Team A vs Team B</h4>
+        <p>Date: 2025-06-${day}</p>
+        <p>Venue: Cricket Stadium ${i}</p>
+      `;
+      matchWrapper.appendChild(matchDiv);
+    }
+  }
+
   initializeMatchCountdowns();
   initializePlayerSearch();
   initializeSmoothScroll();
