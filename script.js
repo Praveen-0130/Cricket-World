@@ -3,26 +3,18 @@ function alertSubscribe() {
   alert("Thanks for subscribing to Cricket World!");
 }
 
-// Log info about players loaded
-for (let i = 1; i <= 100; i++) {
-  console.log(`Loaded player ${i} info`);
-}
-
 // Countdown timers for upcoming matches
 function initializeMatchCountdowns() {
   const matches = document.querySelectorAll('.match');
-  matches.forEach((match, index) => {
-    // Create countdown element
+  matches.forEach((match) => {
     const countdownEl = document.createElement('p');
     countdownEl.classList.add('countdown');
     match.appendChild(countdownEl);
 
-    // Calculate target date (from match date in DOM)
-    const dateText = match.querySelector('p').textContent; // e.g., "Date: 2025-06-05"
+    const dateText = match.querySelector('p').textContent;
     const matchDateStr = dateText.replace('Date: ', '');
     const matchDate = new Date(matchDateStr + 'T00:00:00');
 
-    // Update countdown every second
     const intervalId = setInterval(() => {
       const now = new Date();
       const diff = matchDate - now;
@@ -45,13 +37,10 @@ function initializeMatchCountdowns() {
 
 // Player search filter
 function initializePlayerSearch() {
-  // Create search input and add it to the featured players section
   const container = document.querySelector('.featured-players .container');
   const searchDiv = document.createElement('div');
   searchDiv.classList.add('search-container');
-  searchDiv.innerHTML = `
-    <input type="text" id="playerSearch" placeholder="Search players by name..." />
-  `;
+  searchDiv.innerHTML = '<input type="text" id="playerSearch" placeholder="Search players by name..." />';
   container.insertBefore(searchDiv, container.querySelector('.players-wrapper'));
 
   const input = document.getElementById('playerSearch');
@@ -61,11 +50,7 @@ function initializePlayerSearch() {
     const filter = input.value.toLowerCase();
     players.forEach(player => {
       const name = player.querySelector('h3').textContent.toLowerCase();
-      if (name.includes(filter)) {
-        player.style.display = '';
-      } else {
-        player.style.display = 'none';
-      }
+      player.style.display = name.includes(filter) ? '' : 'none';
     });
   });
 }
@@ -87,8 +72,33 @@ function initializeSmoothScroll() {
   });
 }
 
-// Initialize all functions when DOM content is loaded
+// Dynamically generate player cards and matches
 document.addEventListener('DOMContentLoaded', () => {
+  const playerWrapper = document.querySelector('.players-wrapper');
+  for (let i = 1; i <= 50; i++) {
+    const playerDiv = document.createElement('div');
+    playerDiv.className = 'player';
+    playerDiv.innerHTML = `
+      <img src="assets/player${(i % 3) + 1}.jpg" alt="Player ${i}" />
+      <h3>Player Name ${i}</h3>
+      <p>Bio for player ${i} with a notable history in international cricket and domestic leagues.</p>
+    `;
+    playerWrapper.appendChild(playerDiv);
+  }
+
+  const matchWrapper = document.querySelector('.matches-wrapper');
+  for (let i = 1; i <= 50; i++) {
+    const matchDiv = document.createElement('div');
+    matchDiv.className = 'match';
+    const day = ((i % 30) + 1).toString().padStart(2, '0');
+    matchDiv.innerHTML = `
+      <h4>Match ${i}: Team A vs Team B</h4>
+      <p>Date: 2025-06-${day}</p>
+      <p>Venue: Cricket Stadium ${i}</p>
+    `;
+    matchWrapper.appendChild(matchDiv);
+  }
+
   initializeMatchCountdowns();
   initializePlayerSearch();
   initializeSmoothScroll();
