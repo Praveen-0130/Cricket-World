@@ -1,3 +1,5 @@
+//Aditthya Debugged whole JS Code Now its working good
+//Changed whole code
 // Subscribe button alert
 function alertSubscribe() {
   alert("Thanks for subscribing to Cricket World!");
@@ -11,16 +13,21 @@ for (let i = 1; i <= 100; i++) {
 // Countdown timers for upcoming matches
 function initializeMatchCountdowns() {
   const matches = document.querySelectorAll('.match');
-  matches.forEach((match, index) => {
-    // Create countdown element
-    const countdownEl = document.createElement('p');
-    countdownEl.classList.add('countdown');
-    match.appendChild(countdownEl);
+  matches.forEach((match) => {
+    const dateEl = match.querySelector('p');
+    if (!dateEl) return;
 
-    // Calculate target date (from match date in DOM)
-    const dateText = match.querySelector('p').textContent; // e.g., "Date: 2025-06-05"
+    // Extract and parse date
+    const dateText = dateEl.textContent.trim(); // e.g., "Date: 2025-06-05"
     const matchDateStr = dateText.replace('Date: ', '');
     const matchDate = new Date(matchDateStr + 'T00:00:00');
+
+    if (isNaN(matchDate.getTime())) return; // Skip invalid dates
+
+    // Create and append countdown element
+    const countdownEl = document.createElement('p');
+    countdownEl.className = 'countdown';
+    match.appendChild(countdownEl);
 
     // Update countdown every second
     const intervalId = setInterval(() => {
@@ -45,14 +52,17 @@ function initializeMatchCountdowns() {
 
 // Player search filter
 function initializePlayerSearch() {
-  // Create search input and add it to the featured players section
   const container = document.querySelector('.featured-players .container');
+  if (!container) return;
+
+  const playersWrapper = container.querySelector('.players-wrapper');
+  if (!playersWrapper) return;
+
+  // Create and insert search box
   const searchDiv = document.createElement('div');
-  searchDiv.classList.add('search-container');
-  searchDiv.innerHTML = `
-    <input type="text" id="playerSearch" placeholder="Search players by name..." />
-  `;
-  container.insertBefore(searchDiv, container.querySelector('.players-wrapper'));
+  searchDiv.className = 'search-container';
+  searchDiv.innerHTML = `<input type="text" id="playerSearch" placeholder="Search players by name..." />`;
+  container.insertBefore(searchDiv, playersWrapper);
 
   const input = document.getElementById('playerSearch');
   const players = container.querySelectorAll('.player');
@@ -60,12 +70,9 @@ function initializePlayerSearch() {
   input.addEventListener('input', () => {
     const filter = input.value.toLowerCase();
     players.forEach(player => {
-      const name = player.querySelector('h3').textContent.toLowerCase();
-      if (name.includes(filter)) {
-        player.style.display = '';
-      } else {
-        player.style.display = 'none';
-      }
+      const nameEl = player.querySelector('h3');
+      const name = nameEl ? nameEl.textContent.toLowerCase() : '';
+      player.style.display = name.includes(filter) ? '' : 'none';
     });
   });
 }
@@ -74,10 +81,10 @@ function initializePlayerSearch() {
 function initializeSmoothScroll() {
   const navLinks = document.querySelectorAll('nav ul li a');
   navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
+    link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
+        e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
@@ -87,7 +94,7 @@ function initializeSmoothScroll() {
   });
 }
 
-// Initialize all functions when DOM content is loaded
+// Initialize functions when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initializeMatchCountdowns();
   initializePlayerSearch();
