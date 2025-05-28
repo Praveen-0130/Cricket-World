@@ -7,14 +7,22 @@ function alertSubscribe() {
 function initializeMatchCountdowns() {
   const matches = document.querySelectorAll('.match');
   matches.forEach((match) => {
-    const countdownEl = document.createElement('p');
-    countdownEl.classList.add('countdown');
-    match.appendChild(countdownEl);
+    const dateEl = match.querySelector('p');
+    if (!dateEl) return;
 
-    const dateText = match.querySelector('p').textContent;
+    // Extract and parse date
+    const dateText = dateEl.textContent.trim(); // e.g., "Date: 2025-06-05"
     const matchDateStr = dateText.replace('Date: ', '');
     const matchDate = new Date(matchDateStr + 'T00:00:00');
 
+    if (isNaN(matchDate.getTime())) return; // Skip invalid dates
+
+    // Create and append countdown element
+    const countdownEl = document.createElement('p');
+    countdownEl.className = 'countdown';
+    match.appendChild(countdownEl);
+
+    // Update countdown every second
     const intervalId = setInterval(() => {
       const now = new Date();
       const diff = matchDate - now;
@@ -38,10 +46,16 @@ function initializeMatchCountdowns() {
 // Player search filter
 function initializePlayerSearch() {
   const container = document.querySelector('.featured-players .container');
+  if (!container) return;
+
+  const playersWrapper = container.querySelector('.players-wrapper');
+  if (!playersWrapper) return;
+
+  // Create and insert search box
   const searchDiv = document.createElement('div');
-  searchDiv.classList.add('search-container');
-  searchDiv.innerHTML = '<input type="text" id="playerSearch" placeholder="Search players by name..." />';
-  container.insertBefore(searchDiv, container.querySelector('.players-wrapper'));
+  searchDiv.className = 'search-container';
+  searchDiv.innerHTML = `<input type="text" id="playerSearch" placeholder="Search players by name..." />`;
+  container.insertBefore(searchDiv, playersWrapper);
 
   const input = document.getElementById('playerSearch');
   const players = container.querySelectorAll('.player');
@@ -49,7 +63,8 @@ function initializePlayerSearch() {
   input.addEventListener('input', () => {
     const filter = input.value.toLowerCase();
     players.forEach(player => {
-      const name = player.querySelector('h3').textContent.toLowerCase();
+      const nameEl = player.querySelector('h3');
+      const name = nameEl ? nameEl.textContent.toLowerCase() : '';
       player.style.display = name.includes(filter) ? '' : 'none';
     });
   });
@@ -59,10 +74,10 @@ function initializePlayerSearch() {
 function initializeSmoothScroll() {
   const navLinks = document.querySelectorAll('nav ul li a');
   navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
+    link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
+        e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
@@ -72,31 +87,35 @@ function initializeSmoothScroll() {
   });
 }
 
-// Dynamically generate player cards and matches
+// Dynamically generate player cards and matches, then initialize functionality
 document.addEventListener('DOMContentLoaded', () => {
   const playerWrapper = document.querySelector('.players-wrapper');
-  for (let i = 1; i <= 50; i++) {
-    const playerDiv = document.createElement('div');
-    playerDiv.className = 'player';
-    playerDiv.innerHTML = `
-      <img src="assets/player${(i % 3) + 1}.jpg" alt="Player ${i}" />
-      <h3>Player Name ${i}</h3>
-      <p>Bio for player ${i} with a notable history in international cricket and domestic leagues.</p>
-    `;
-    playerWrapper.appendChild(playerDiv);
+  if (playerWrapper) {
+    for (let i = 1; i <= 50; i++) {
+      const playerDiv = document.createElement('div');
+      playerDiv.className = 'player';
+      playerDiv.innerHTML = `
+        <img src="assets/player${(i % 3) + 1}.jpg" alt="Player ${i}" />
+        <h3>Player Name ${i}</h3>
+        <p>Bio for player ${i} with a notable history in international cricket and domestic leagues.</p>
+      `;
+      playerWrapper.appendChild(playerDiv);
+    }
   }
 
   const matchWrapper = document.querySelector('.matches-wrapper');
-  for (let i = 1; i <= 50; i++) {
-    const matchDiv = document.createElement('div');
-    matchDiv.className = 'match';
-    const day = ((i % 30) + 1).toString().padStart(2, '0');
-    matchDiv.innerHTML = `
-      <h4>Match ${i}: Team A vs Team B</h4>
-      <p>Date: 2025-06-${day}</p>
-      <p>Venue: Cricket Stadium ${i}</p>
-    `;
-    matchWrapper.appendChild(matchDiv);
+  if (matchWrapper) {
+    for (let i = 1; i <= 50; i++) {
+      const matchDiv = document.createElement('div');
+      matchDiv.className = 'match';
+      const day = ((i % 30) + 1).toString().padStart(2, '0');
+      matchDiv.innerHTML = `
+        <h4>Match ${i}: Team A vs Team B</h4>
+        <p>Date: 2025-06-${day}</p>
+        <p>Venue: Cricket Stadium ${i}</p>
+      `;
+      matchWrapper.appendChild(matchDiv);
+    }
   }
 
   initializeMatchCountdowns();

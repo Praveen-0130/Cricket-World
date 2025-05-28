@@ -1,0 +1,82 @@
+//Aditthya Debugged whole JS Code Now its working good
+//Changed whole code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cricket World - The Ultimate Fan Site</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Cricket World</h1>
+      <nav>
+        <ul>
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#News">News</a></li>
+          <li><a href="#Teams">Teams</a></li>
+          <li><a href="#Matches">Matches</a></li>
+          <li><a href="#Gallery">Gallery</a></li>
+          <li><a href="#Contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="Home">
+    <div class="container">
+      <h2>Welcome to the Ultimate Cricket Fan Site</h2>
+      <p>Your source for all things cricket — news, stats, schedules, and more!</p>
+      <button onclick="alert('Thanks for subscribing to Cricket World!')">Subscribe Now</button>
+    </div>
+  </section>
+
+  <section class="featured-players" id="Teams">
+    <div class="container">
+      <h2>Featured Players</h2>
+      <div class="players-wrapper">
+        <!-- Dynamically generated content -->
+        <!-- Example template:
+        {% for i in range(1, 51) %}
+        <div class="player">
+          <img src="assets/player{{ i % 3 + 1 }}.jpg" alt="Player {{ i }}" />
+          <h3>Player Name {{ i }}</h3>
+          <p>Bio for player {{ i }} with a notable history in international cricket and domestic leagues.</p>
+        </div>
+        {% endfor %}
+        -->
+      </div>
+    </div>
+  </section>
+
+  <section class="match-schedule" id="Matches">
+    <div class="container">
+      <h2>Upcoming Matches</h2>
+      <div class="matches-wrapper">
+        <!-- Dynamically generated content -->
+        <!-- Example template:
+        {% for i in range(1, 51) %}
+        <div class="match">
+          <h4>Match {{ i }}: Team A vs Team B</h4>
+          <p>Date: 2025-06-{{ (i % 30) + 1 }}</p>
+          <p>Venue: Cricket Stadium {{ i }}</p>
+        </div>
+        {% endfor %}
+        -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Cricket World. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
