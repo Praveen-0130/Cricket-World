@@ -43,6 +43,33 @@ function initializeMatchCountdowns() {
   });
 }
 
+// Set match date here (Format: YYYY-MM-DDTHH:MM:SS)
+const matchDate = new Date("2025-06-15T18:30:00").getTime();
+
+const updateCountdown = () => {
+  const now = new Date().getTime();
+  const timeLeft = matchDate - now;
+
+  if (timeLeft <= 0) {
+    document.getElementById("timer").innerHTML = "Match Started!";
+    return;
+  }
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerText = days.toString().padStart(2, '0');
+  document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+  document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+  document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+};
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+
 // Player search filter
 function initializePlayerSearch() {
   const container = document.querySelector('.featured-players .container');
