@@ -1,5 +1,6 @@
 //Aditthya Debugged whole JS Code Now its working good
 //Changed whole code
+//Akshay added countdown section and player comparision
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +29,20 @@
       </nav>
     </div>
   </header>
+
+<section id="countdown-section">
+  <h2>Next Match Countdown</h2>
+  <div id="countdown-box">
+    <p id="match-info">India vs Australia - Final</p>
+    <div id="timer">
+      <span id="days">00</span>d :
+      <span id="hours">00</span>h :
+      <span id="minutes">00</span>m :
+      <span id="seconds">00</span>s
+    </div>
+  </div>
+</section>
+
 
   <section class="hero" id="Home">
     <div class="container">
@@ -72,6 +87,31 @@
       </div>
     </div>
   </section>
+
+<section id="comparison-tool">
+  <h2>Compare Players</h2>
+  <div class="selectors">
+    <select id="player1-select">
+      <option value="">Select Player 1</option>
+      <option value="kohli">Virat Kohli</option>
+      <option value="root">Joe Root</option>
+      <option value="smith">Steve Smith</option>
+    </select>
+
+    <select id="player2-select">
+      <option value="">Select Player 2</option>
+      <option value="kohli">Virat Kohli</option>
+      <option value="root">Joe Root</option>
+      <option value="smith">Steve Smith</option>
+    </select>
+  </div>
+
+  <div id="comparison-result">
+    <div class="player-card" id="player1-card"></div>
+    <div class="player-card" id="player2-card"></div>
+  </div>
+</section>
+
 
   <footer>
     <div class="container">

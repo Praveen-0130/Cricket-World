@@ -43,6 +43,79 @@ function initializeMatchCountdowns() {
   });
 }
 
+const players = {
+  kohli: {
+    name: "Virat Kohli",
+    matches: 275,
+    runs: 12898,
+    average: 57.32,
+    strikeRate: 93.25,
+  },
+  root: {
+    name: "Joe Root",
+    matches: 158,
+    runs: 11225,
+    average: 50.12,
+    strikeRate: 86.45,
+  },
+  smith: {
+    name: "Steve Smith",
+    matches: 150,
+    runs: 10488,
+    average: 51.35,
+    strikeRate: 88.20,
+  }
+};
+
+function updateCard(playerId, cardId) {
+  const player = players[playerId];
+  if (!player) return;
+
+  document.getElementById(cardId).innerHTML = `
+    <h3>${player.name}</h3>
+    <p><strong>Matches:</strong> ${player.matches}</p>
+    <p><strong>Runs:</strong> ${player.runs}</p>
+    <p><strong>Average:</strong> ${player.average}</p>
+    <p><strong>Strike Rate:</strong> ${player.strikeRate}</p>
+  `;
+}
+
+document.getElementById("player1-select").addEventListener("change", function () {
+  updateCard(this.value, "player1-card");
+});
+
+document.getElementById("player2-select").addEventListener("change", function () {
+  updateCard(this.value, "player2-card");
+});
+
+
+// Set match date here (Format: YYYY-MM-DDTHH:MM:SS)
+const matchDate = new Date("2025-06-15T18:30:00").getTime();
+
+const updateCountdown = () => {
+  const now = new Date().getTime();
+  const timeLeft = matchDate - now;
+
+  if (timeLeft <= 0) {
+    document.getElementById("timer").innerHTML = "Match Started!";
+    return;
+  }
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerText = days.toString().padStart(2, '0');
+  document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+  document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+  document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+};
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+
 // Player search filter
 function initializePlayerSearch() {
   const container = document.querySelector('.featured-players .container');
