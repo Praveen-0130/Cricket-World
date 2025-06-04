@@ -9,6 +9,12 @@ function initializeMatchCountdowns() {
   matches.forEach((match) => {
     const dateEl = match.querySelector('p');
     if (!dateEl) return;
+  countdownEl.style.opacity = '0';
+  setTimeout(() => {
+  countdownEl.textContent = `Starts in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  countdownEl.style.opacity = '1';
+}, 200);
+
 
     // Extract and parse date
     const dateText = dateEl.textContent.trim(); // e.g., "Date: 2025-06-05"
@@ -175,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       playerWrapper.appendChild(playerDiv);
     }
   }
-
+  
   const matchWrapper = document.querySelector('.matches-wrapper');
   if (matchWrapper) {
     for (let i = 1; i <= 50; i++) {
@@ -190,6 +196,30 @@ document.addEventListener('DOMContentLoaded', () => {
       matchWrapper.appendChild(matchDiv);
     }
   }
+function initializeDarkMode() {
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  const body = document.body;
+
+  // Load saved preference
+  const savedMode = localStorage.getItem('darkMode');
+  if (savedMode === 'enabled') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = "☀️ Light Mode";
+  }
+  input.addEventListener('input', debouncedPlayerSearch);
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = "☀️ Light Mode";
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      toggleBtn.textContent = "🌙 Dark Mode";
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  });
+  
+}
 
   initializeMatchCountdowns();
   initializePlayerSearch();
