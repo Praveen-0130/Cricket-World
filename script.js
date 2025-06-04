@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       playerWrapper.appendChild(playerDiv);
     }
   }
-
+  
   const matchWrapper = document.querySelector('.matches-wrapper');
   if (matchWrapper) {
     for (let i = 1; i <= 50; i++) {
@@ -206,6 +206,7 @@ function initializeDarkMode() {
     body.classList.add('dark-mode');
     toggleBtn.textContent = "☀️ Light Mode";
   }
+  input.addEventListener('input', debouncedPlayerSearch);
 
   toggleBtn.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
@@ -217,6 +218,7 @@ function initializeDarkMode() {
       localStorage.setItem('darkMode', 'disabled');
     }
   });
+  
 }
 
   initializeMatchCountdowns();
